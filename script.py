@@ -12,7 +12,7 @@ r.status_code    #status code refers to whether I have access, or if that link e
 
 def open_text_file():
 	
-	with open('/Users/jvandenbussche/example_1.txt', 'w') as fileOut:   # dumps the information into a text file on local machine
+	with open('/directory/example_1.txt', 'w') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(r.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -52,7 +52,7 @@ print '\n'.join([','.join(y) for y in list_info()])  #prints it to screen for ve
 
 def open_csv_file(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/jvandenbussche/example.csv', 'w') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/directory/example.csv', 'w') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow(row)
