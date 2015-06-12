@@ -1,4 +1,10 @@
 # python-json-to-csv
-Parsing JSON from JIRA API into a CSV file using a Python script
+Parsing JSON from JIRA API into a CSV file using a Python script current work in progress. 
 
-It works but for some reason it wont write more than 14 entries in the csv file. If you run inside of python it will display as much as you want, but wont write that amount. Work in progress.
+Using JQL queries filter IR created date ranges with specific fields that I want to upload to a spreadsheet.
+
+test.py is a code dump of all research, alternate methods, and trying new ideas. Doesnt need to compile. 
+
+
+
+
