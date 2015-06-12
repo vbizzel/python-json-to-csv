@@ -3,7 +3,7 @@ import json # module for JavaScript Object Notation
 import csv
 
 # this http request to JIRA will get the IR and by the date it was created. This one fetches all IR's created in the last 7 days.
-this_week = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('username', 'password'))    #access to the url, needs username and password to JIRA
+this_week = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfWeek(-0w)', auth=('username', 'password'))    #access to the url, needs username and password to JIRA
 
 def thisWeek():
 	
