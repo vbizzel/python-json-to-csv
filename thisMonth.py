@@ -2,7 +2,7 @@ import requests    # module that makes http requests
 import json # module for JavaScript Object Notation
 import csv
 
-this_month = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('username', 'password'))
+this_month = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfMonth(-0M)', auth=('username', 'password'))
 
 
 def thisMonth():
