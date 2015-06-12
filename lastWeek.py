@@ -2,7 +2,7 @@ import requests    # module that makes http requests
 import json # module for JavaScript Object Notation
 import csv
 
-last_week = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('username', 'password'))
+last_week = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfWeek(-1w)%20and%20created%20%3C=%20endOfWeek(-1w)', auth=('username', 'password'))
 
 
 def lastWeek():
