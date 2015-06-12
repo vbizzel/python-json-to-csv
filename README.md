@@ -1,5 +1,5 @@
 # python-json-to-csv
-Parsing JSON from JIRA API into a CSV file using a Python script current work in progress. 
+Parsing JSON from JIRA API into a CSV file using a Python script current work in progress. I still need to get the correct JQL search options correct for each date range. 
 
 Using JQL queries filter IR created date ranges with specific fields that I want to upload to a spreadsheet.
 
