@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+python thisWeek.py & 
+python lastweek.py & 
+python thisMonth.py & 
+python lastMonth.py & 
+python jan2015_current.py &
+python july2014_dec2014.py &
