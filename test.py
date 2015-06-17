@@ -3,19 +3,17 @@ import json # module for JavaScript Object Notation
 import csv
 
 # this http request to JIRA will get the IR and by the date it was created. This one fetches all IR's created in the last 7 days.
-this_week = requests.get('https://work.corp.dyndns.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('jvandenbussche', 'o7rLiWSAO0sIYFsd1bpfEI77A'))    #access to the url, needs username and password to JIRA
+this_week = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfWeek(-0w)', auth=('username', 'password'))    #access to the url, needs username and password to JIRA
 
-this_week = requests.get('https://work.corp.dyndns.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('jvandenbussche', 'o7rLiWSAO0sIYFsd1bpfEI77A'))
+last_week = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfWeek(-1w)%20and%20created%20%3C=%20endOfWeek(-1w)', auth=('username', 'password'))
 
-last_week = requests.get('https://work.corp.dyndns.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('jvandenbussche', 'o7rLiWSAO0sIYFsd1bpfEI77A'))
+this_month = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfMonth(-0M)', auth=('username', 'password'))
 
-this_month = requests.get('https://work.corp.dyndns.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('jvandenbussche', 'o7rLiWSAO0sIYFsd1bpfEI77A'))
+last_month = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfMonth(-1M)%20and%20created%20%3C=%20endOfMonth(-1M)', auth=('username', 'password'))
 
-last_month = requests.get('https://work.corp.dyndns.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('jvandenbussche', 'o7rLiWSAO0sIYFsd1bpfEI77A'))
+jan2015_current = requests.get('https://domain.com/rest/api/2/search?jql=project%20=%20IR%20AND%20created%20%3E=%202015-01-01%20AND%20created%20%3C=%20now()%20&maxResults=1000', auth=('username', 'password'))
 
-jan2015_current = requests.get('https://work.corp.dyndns.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('jvandenbussche', 'o7rLiWSAO0sIYFsd1bpfEI77A'))
-
-july2014_dec2014 = requests.get('https://work.corp.dyndns.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('jvandenbussche', 'o7rLiWSAO0sIYFsd1bpfEI77A'))
+july2014_dec2014 = requests.get('https://domain.com/rest/api/2/search?jql=project%20=%20IR%20AND%20created%20%3E=%202014-07-01%20AND%20created%20%3C=%202014-12-31&maxResults=400', auth=('username', 'password'))
 
 
 
@@ -26,7 +24,7 @@ july2014_dec2014 = requests.get('https://work.corp.dyndns.com/rest/api/2/search?
 
 def thisWeek():
 	
-	with open('/Users/jvandenbussche/thisWeek.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
+	with open('/Users/directory/thisWeek.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(this_week.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -34,7 +32,7 @@ def thisWeek():
 
 def lastWeek():
 	
-	with open('/Users/jvandenbussche/lastWeek.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
+	with open('/Users/directory/lastWeek.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(last_week.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -42,7 +40,7 @@ def lastWeek():
 
 def thisMonth():
 	
-	with open('/Users/jvandenbussche/thisMonth.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
+	with open('/Users/directory/thisMonth.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(this_Month.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -50,7 +48,7 @@ def thisMonth():
 
 def lastMonth():
 	
-	with open('/Users/jvandenbussche/lastMonth.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
+	with open('/Users/directory/lastMonth.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(last_month.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -58,7 +56,7 @@ def lastMonth():
 
 def janToCurrent():
 	
-	with open('/Users/jvandenbussche/jan2015_current.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
+	with open('/Users/directory/jan2015_current.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(jan2015_current.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -66,7 +64,7 @@ def janToCurrent():
 
 def julyToDec():
 	
-	with open('/Users/jvandenbussche/july2014_dec2014.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
+	with open('/Users/directory/july2014_dec2014.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(july2014_dec2014.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -117,7 +115,7 @@ def list_info():   #function containing the search fields and appending them to 
 
 def thisWeekCSV(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/jvandenbussche/thisWeek.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/Users/directory/thisWeek.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow([w.encode('utf-8') for w in row])
@@ -127,7 +125,7 @@ def thisWeekCSV(): # function that opens up a csv file to put the filtered data 
 
 def lastWeekCSV(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/jvandenbussche/lastWeek.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/Users/directory/lastWeek.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow([w.encode('utf-8') for w in row])
@@ -137,7 +135,7 @@ def lastWeekCSV(): # function that opens up a csv file to put the filtered data 
 
 def thisMonthCSV(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/jvandenbussche/thisMonth.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/Users/directory/thisMonth.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow([w.encode('utf-8') for w in row])
@@ -147,7 +145,7 @@ def thisMonthCSV(): # function that opens up a csv file to put the filtered data
 
 def lastMonthCSV(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/jvandenbussche/lastMonth.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/Users/directory/lastMonth.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow([w.encode('utf-8') for w in row])
@@ -157,7 +155,7 @@ def lastMonthCSV(): # function that opens up a csv file to put the filtered data
 
 def janToCurrentCSV(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/jvandenbussche/jan2015_current.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/Users/directory/jan2015_current.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow([w.encode('utf-8') for w in row])
@@ -167,7 +165,7 @@ def janToCurrentCSV(): # function that opens up a csv file to put the filtered d
 
 def julyToDecCSV(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/jvandenbussche/july2014_dec2014.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/Users/directory/july2014_dec2014.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow([w.encode('utf-8') for w in row])
