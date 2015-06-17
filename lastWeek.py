@@ -7,7 +7,7 @@ last_week = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20
 
 def lastWeek():
 	
-	with open('/Users/directory/lastWeek.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
+	with open('/Users/directory/Desktop/Python_OutPut/lastWeek.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(last_week.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -37,7 +37,7 @@ def list_info():   #function containing the search fields and appending them to 
 
 def lastWeekCSV(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/directory/lastWeek.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/Users/directory/Desktop/Python_OutPut/lastWeek.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow([w.encode('utf-8') for w in row])
