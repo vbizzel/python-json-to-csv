@@ -2,11 +2,11 @@ import requests    # module that makes http requests
 import json # module for JavaScript Object Notation
 import csv
 
-july2014_dec2014 = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%20and%20created%20%3E=%20startOfDay(-7d)', auth=('username', 'password'))
+july2014_dec2014 = requests.get('https://domain.com/rest/api/2/search?jql=project%20=%20IR%20AND%20created%20%3E=%202014-07-01%20AND%20created%20%3C=%202014-12-31&maxResults=400', auth=('username', 'password'))
 
 def julyToDec():
 	
-	with open('/Users/directory/july2014_dec2014.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
+	with open('/Users/directory/Desktop/Python_OutPut/july2014_dec2014.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(july2014_dec2014.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -36,7 +36,7 @@ def list_info():   #function containing the search fields and appending them to 
 
 def julyToDecCSV(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/directory/july2014_dec2014.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/Users/directory/Desktop/Python_OutPut/july2014_dec2014.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow([w.encode('utf-8') for w in row])
