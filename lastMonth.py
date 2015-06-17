@@ -6,7 +6,7 @@ last_month = requests.get('https://domain.com/rest/api/2/search?jql=project=IR%2
 
 def lastMonth():
 	
-	with open('/Users/directory/lastMonth.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
+	with open('/Users/directory/Desktop/Python_OutPut/lastMonth.txt', 'w+') as fileOut:   # dumps the information into a text file on local machine
 		fileOut.write(json.dumps(last_month.json(), indent = 4 ))  # prints the API JSON request informaton with formatting in python
 		fileOut.close()
 
@@ -36,7 +36,7 @@ def list_info():   #function containing the search fields and appending them to 
 
 def lastMonthCSV(): # function that opens up a csv file to put the filtered data into
 
-	with open('/Users/directory/lastMonth.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
+	with open('/Users/directory/Desktop/Python_OutPut/lastMonth.csv', 'w+') as csvFileOut:  #prints the information from list_info into a csv file
 		wr = csv.writer(csvFileOut, quoting=csv.QUOTE_ALL)
 		for row in list_info():
 			wr.writerow([w.encode('utf-8') for w in row])
